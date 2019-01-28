@@ -1,0 +1,21 @@
+<nav>
+	<a class="brand">Movie Trailers</a>
+	<a class="btn" *ngFor="let btn of filters">
+	  <mat-select [(value)]="btn.selected" [multiple]="btn.multiple" color="primary" [placeholder]="btn.name" (selectionChange)="changed($event, btn)">
+	    <mat-option *ngFor="let item of btn.items" [value]="item">{{item}}</mat-option>
+	  </mat-select>
+	</a>
+	<a *ngIf="isFilterApplied" class="close">
+		<i class="material-icons">close</i>
+	</a>
+</nav>
+<div class="filters">
+	<small class="label">Applied Filters:</small>
+	<small class="item" *ngFor="let f of appliedFilters?.language; let i = index" (click)="close(i, f, 'language')">	<span>{{f}}</span>
+		<i class="material-icons">close</i>
+	</small>
+	<small class="item" *ngFor="let f of appliedFilters?.genre; let i = index" (click)="close(i, f, 'genre')">
+		<span>{{f}}</span>
+		<i class="material-icons">close</i>
+	</small>
+</div>

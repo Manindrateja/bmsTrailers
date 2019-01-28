@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Niconne|Roboto');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// .header{
+// 	font-family: 'Niconne', cursive;
+// }
+:root {
+  --theme-color: #0099ff;
+  --navbar-color: rgba(0,0,0,0);
+  --btn-bg-color: #4EC697;
+  --border-color: #2DC082;
+  --text-primary: #fff;
+  --text-secondary: #49BA8E;
+  --text-label: #979797;
+  --btn-text: #43AB83;
+}
+
+body {
+	background: #1C1C1C;
+	color: var(--text-primary);
+	font-family: 'Roboto', sans-serif;
+}

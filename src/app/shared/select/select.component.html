@@ -1,0 +1,7 @@
+<div>{{ value || label }}</div>
+<div class="list">
+	<div class="item" *ngFor="let i of items" (click)="checked(i)" [class.selected]="i.checked">
+		<i class="material-icons">{{i.checked?'check_box':'check_box_outline_blank'}}</i>
+		<span> {{i.name}}</span>
+	</div>
+</div>

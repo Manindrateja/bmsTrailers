@@ -1,0 +1,46 @@
+:host {
+	display: block;
+	border-radius: 8px;
+	padding: 6px 10px;
+	position: relative;
+	border: 1px solid var(--border-color);
+	transition: all .2s ease-in;
+	color: var(--text-secondary);
+	.list {
+		display: none;
+		position: absolute;
+		top: 100%;
+		background: rgba(64,64,64,.4);
+	    width: 100%;
+	    left: 0px;
+	    padding: 10px 0;
+	    
+	    .item {
+	    	align-items: center;	
+	    	padding: 4px 10px;
+	    	display: flex;
+	    	span {
+	    		text-transform: capitalize;
+	    		 padding-left: 8px;
+	    		flex: auto;
+	    		color: #fff;
+	    		&:hover {
+	    			color: var(--text-secondary);
+	    		}
+	    	}
+	    	i{
+	    		color: #fff;
+	    	}
+	    	&.selected {
+	    		i,span {
+	    			color: var(--text-secondary);
+	    		}
+	    	}
+	    }
+	}
+	&:hover {
+		.list {
+			display: block;
+		}
+	}
+}

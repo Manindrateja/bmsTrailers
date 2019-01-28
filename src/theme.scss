@@ -1,0 +1,76 @@
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$trailers-theme: (
+    50 : #e9f7f1,
+    100 : #c8eadd,
+    200 : #a4ddc7,
+    300 : #80cfb0,
+    400 : #64c49f,
+    500 : #49ba8e,
+    600 : #42b386,
+    700 : #39ab7b,
+    800 : #31a371,
+    900 : #21945f,
+    A100 : #d0ffe8,
+    A200 : #9dffcf,
+    A400 : #6affb7,
+    A700 : #51ffaa,
+    // contrast: (
+    //     50 : #000000,
+    //     100 : #000000,
+    //     200 : #000000,
+    //     300 : #000000,
+    //     400 : #ffffff,
+    //     500 : #ffffff,
+    //     600 : #000000,
+    //     700 : #000000,
+    //     800 : #ffffff,
+    //     900 : #ffffff,
+    //     A100 : #000000,
+    //     A200 : #000000,
+    //     A400 : #000000,
+    //     A700 : #000000,
+    // )
+    contrast: (
+        50 : #e9f7f1,
+        100 : #c8eadd,
+        200 : #a4ddc7,
+        300 : #80cfb0,
+        400 : #64c49f,
+        500 : #49ba8e,
+        600 : #42b386,
+        700 : #39ab7b,
+        800 : #31a371,
+        900 : #21945f,
+        A100 : #d0ffe8,
+        A200 : #9dffcf,
+        A400 : #6affb7,
+        A700 : #51ffaa
+    )
+);
+
+
+
+$primary: mat-palette($trailers-theme);
+$accent: mat-palette($trailers-theme);
+$warn: mat-palette($mat-red);
+
+$tailer-theme: mat-dark-theme($primary, $accent, $warn);
+
+@include angular-material-theme($tailer-theme);
+
+
+
+.mat-select-value, .mat-select-arrow,  .mat-select-placeholder{
+    color: #49ba8e;
+}
+.mat-option {
+    text-transform: capitalize;
+    &:hover {
+        color: #49ba8e;
+    }
+}

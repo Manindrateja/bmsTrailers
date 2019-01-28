@@ -1,0 +1,73 @@
+<app-navbar [filters]="filters" (filtersChanged)="onfilter($event)"></app-navbar>
+<div class="eventsContainer" #container>
+	<ng-container *ngFor="let e of events; let i = index;">
+		<div *ngIf="!e.bigEvent" class="event" (click)="eventSelected(e, i, false)" [class.active]="e.EventCode === activeEvent?.EventCode" [style.order]="(activeEventIndex > i)?0:2 ">
+			<div class="img" [style.backgroundImage]="'url(https://in.bmscdn.com/events/moviecard/'+ e.EventCode +'.jpg' +')'">
+			</div>
+			<div class="details">
+				<span class="date">
+					<span class="day">{{e.ShowDate1[0]}}</span>
+					<span class="month">{{e.ShowDate1[1]}}</span>
+				</span>
+				<i class="play material-icons">play_circle_outline</i>
+				<span class="votes">
+					<span class="percentage">
+						<i class="like material-icons">thumb_up</i>
+						{{e.wtsPerc}} %
+					</span>
+					<span class="count">{{e.csCount}} votes</span>
+				</span>
+			</div>
+			<small>
+				{{e.EventTitle}}
+			</small>
+		</div>
+	</ng-container>
+	<div *ngIf="activeEvent" class="event bigEvent" #bigEvent [style.order]="'1'">
+		<div class="video">
+			<iframe *ngIf="activeEvent?.TrailerURL" width="100%" height="100%" [src]="activeEvent?.TrailerURL | safeUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div class="details">
+			<div class="meta">
+				<div class="title">{{activeEvent.EventTitle}}</div>
+				<div class="language">{{activeEvent.EventLanguage}}</div>
+				<div class="genre">
+					<small *ngFor="let g  of activeEvent.EventGenre">{{g}}</small>
+				</div>
+				<div class="info">
+					<div class="item">
+						<i class="material-icons">thumb_up</i>
+						<div class="counters">
+							<div>{{activeEvent.wtsPerc}} %</div>
+							<span>{{activeEvent.csCount}} votes</span>
+						</div>
+					</div>
+					<div class="item">
+						<i class="material-icons">calendar_today</i>
+						<div class="counters">
+							<div>{{activeEvent.ShowDate[0]}}</div>
+							<span>{{activeEvent.ShowDate[1]}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="actions">
+				<div class="action like">
+					<i class="material-icons">thumb_up</i>
+					<div>WILL WATCH</div>
+					<div>({{activeEvent.wtsCount}})</div>
+				</div>
+				<div class="action warn">
+					<i class="material-icons">help_outline</i>
+					<div>MAY BE</div>
+					<div>({{activeEvent.maybeCount}})</div>
+				</div>
+				<div class="action dislike">
+					<i class="material-icons">thumb_down</i>
+					<div>WON'T WATCH</div>
+					<div>({{activeEvent.dwtsCount}})</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
