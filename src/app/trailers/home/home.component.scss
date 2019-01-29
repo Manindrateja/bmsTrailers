@@ -94,16 +94,17 @@
 	}
 	.bigEvent {
 		display: flex;
+		min-height: 60vh;
 		// transition: all .5s ease-in;
 		.video {
 			width: 60%;
 		}
 		.details{
 			position: relative;
-			margin-left: 30px;
+			margin-left: 15px;
 			flex: auto;
 			background: rgba(0,0,0,.4);
-			// height: 60vh;
+			min-height: 60vh;
 			display: block;
 			padding: 10px 20px;
 			.actions {
@@ -146,7 +147,27 @@
 			    			margin: 2px;
 			    		}
 			    	}
-
+			    	&:hover {
+			    		&.like {
+			    			i {
+			    				background: #3FA458;
+			    				color: #fff;
+			    			}
+			    		}
+			    		&.warn {
+			    			i {
+			    				background: #FEA502;
+			    				color: #fff;
+			    				border-radius: 50%;
+			    			}
+			    		}
+			    		&.dislike {
+			    			i {
+			    				background: #B24142;
+			    				color: #fff;
+			    			}
+			    		}
+			    	}
 			    }
 			}
 			.meta{
@@ -198,18 +219,24 @@
 						}
 					}
 				}
-				
 			}
 		}
 		@media only screen and (max-width: 768px) { 
 			display: block;
 			.video {
 				width: 100%;
+				iframe {
+					min-height: 300px;
+					height: auto;
+				}
 			}
 			.details {
 				margin-left: 0px;
+				min-height: auto;
 			}
 		}
 	}
-
+	@media only screen and (max-width: 768px) {
+		padding: 10px;
+	}
 }

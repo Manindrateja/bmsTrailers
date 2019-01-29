@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
 	constructor(private trailerService: TrailerService) { }
 
 	ngOnInit() {
+		
 		this.trailerService.getAll(r => {
-			console.log(r);
-
+			// console.log(r);
 			if(r) {
 				this.filters.push({ name: 'Language', key: 'language', multiple: true, items: r.languages, selected: []});
 				this.filters.push({ name: 'Genre', key: 'genre', multiple: true, items: r.genre, selected: []});
@@ -66,8 +66,6 @@ export class HomeComponent implements OnInit {
 			}
 			return true;
 		});
-
-		
 	}
 
 	activeEvent: any;
@@ -95,9 +93,6 @@ export class HomeComponent implements OnInit {
 	removeSelected(){
 		this.activeEvent = null;
 		this.activeEventIndex = undefined;
-		let index = this.events.findIndex( e => e.bigEvent);
-		if(index > -1)
-			this.events.splice(index,1);
 	}
 
 }
